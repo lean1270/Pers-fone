@@ -580,7 +580,7 @@ function initPayPal() {
     },
 
     // Payment approved
-    onApprove: function(data, actions) {
+     onApprove: function(data, actions) {
       return actions.order.capture().then(function(details) {
         // Clear cart
         cart = [];
