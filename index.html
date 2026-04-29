@@ -124,7 +124,7 @@
   .p2-deco { position: absolute; width: 45%; height: 55%; bottom: 15%; right: 15%; background: rgba(245,243,239,0.03); }
   .p3-deco { position: absolute; width: 70%; height: 2px; top: 40%; left: 15%; background: rgba(245,243,239,0.05); }
   .p4-deco { position: absolute; width: 40%; height: 40%; top: 25%; left: 30%; border-radius: 50%; border: 1px solid rgba(245,243,239,0.05); }
-  .product-overlay { position: absolute; top: 0; width: 100%; height: calc(100% - 3rem); background: rgba(10,10,10,0.75); display: flex; align-items: center; justify-content: center; gap: 0.75rem; opacity: 0; transition: opacity 0.4s ease; flex-direction: column; z-index: 2; }
+  .product-overlay { position: absolute; inset: 0; background: rgba(10,10,10,0.75); display: flex; align-items: center; justify-content: center; gap: 0.75rem; opacity: 0; transition: opacity 0.4s ease; flex-direction: column; z-index: 2; }
   .product-card:hover .product-overlay { opacity: 1; }
   .overlay-btn { padding: 0.75rem 2rem; border: 1px solid var(--white); font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--white); background: transparent; cursor: none; transform: translateY(0px); transition: transform 0.3s ease 0.05s, background 0.3s, color 0.3s; }
   .overlay-btn.secondary { border-color: rgba(245,243,239,0.35); color: rgba(245,243,239,0.5); font-size: 0.5rem; padding: 0.5rem 1.5rem; }
@@ -374,10 +374,12 @@ function cartCount() { return cart.reduce((s, i) => s + i.qty, 0); }
 function renderProducts() {
   document.getElementById('product-grid').innerHTML = PRODUCTS.map(p => `
     <div class="product-card reveal" ${p.span2 ? 'style="grid-row:span 2"' : ''}>
-      <div class="product-image"><div class="${p.deco}"></div></div>
-      <div class="product-overlay">
-        <button class="overlay-btn" onclick="openModal(${p.id})">Quick add</button>
-        <button class="overlay-btn secondary" onclick="openModal(${p.id})">View details</button>
+      <div class="product-image">
+        <div class="${p.deco}"></div>
+        <div class="product-overlay">
+          <button class="overlay-btn" onclick="openModal(${p.id})">Quick add</button>
+          <button class="overlay-btn secondary" onclick="openModal(${p.id})">View details</button>
+        </div>
       </div>
       <div class="product-info">
         <span class="product-name">${p.name}</span>
