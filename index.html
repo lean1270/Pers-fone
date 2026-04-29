@@ -108,7 +108,7 @@
   .marquee-item span { color: var(--white); font-style: normal; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; vertical-align: middle; margin: 0 0.5rem; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-  .collection { padding: 8rem 3rem; }
+  .collection { padding: 8rem 3rem; overflow: hidden; }
   .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 4rem; }
   .section-number { font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); margin-bottom: 0.5rem; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,5rem); font-weight: 300; line-height: 1; }
@@ -116,6 +116,7 @@
   .section-link:hover { color: var(--white); border-color: var(--white); }
   .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .product-card { position: relative; overflow: hidden; cursor: none; }
+  .product-card:first-child { margin-left: 0; }
   .product-image { width: 100%; aspect-ratio: 3/4; background: #1a1a1a; position: relative; overflow: hidden; transition: transform 0.6s cubic-bezier(0.76,0,0.24,1); }
   .product-card:hover .product-image { transform: scale(1.03); }
   .p1-deco { position: absolute; width: 60%; height: 60%; top: 20%; left: 20%; border: 1px solid rgba(245,243,239,0.06); }
